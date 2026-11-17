@@ -1,10 +1,14 @@
 import { Activity, ArrowDown, Braces, Check, Database, FileCheck2, FileSpreadsheet, FileText, FlaskConical, Folder, MousePointer2, Workflow } from 'lucide-react';
 
-export function CaseArt({variant,large=false}:{variant:'reports'|'lims'|'archive'|'system';large?:boolean}){
+export function CaseArt({variant,large=false}:{variant:'reports'|'lims'|'archive'|'system'|'receipts';large?:boolean}){
   return <div aria-hidden="true" className={`case-art case-art--${variant} ${large?'case-art--large':''}`}>
     <div className="art-grid" />
     <div className="art-orbit art-orbit-one"/><div className="art-orbit art-orbit-two"/>
     <div className="case-art-content">
+      {variant==='receipts' && <>
+        <div className="art-lims"><div className="art-lims-header"><FileText size={16}/> RECEIPTFLOW AI <span className="live-led"/></div><div className="art-lims-body"><div className="art-input">Receipt upload <FileText size={16}/></div><div className="art-input">AI extraction <Braces size={16}/></div><div className="art-input">Human review <Check size={16}/></div><div className="art-lims-status"><FileSpreadsheet size={13}/> ORGANIZE & EXPORT</div></div></div>
+        <div className="art-floating art-floating-right"><Check size={17}/> REVIEW BEFORE SAVING</div>
+      </>}
       {variant==='system' && <>
         <div className="art-lims"><div className="art-lims-header"><FlaskConical size={16}/> CML LABORATORY SYSTEM <span className="live-led"/></div><div className="art-lims-body"><div className="art-input">Samples & cases <Database size={16}/></div><div className="art-input">Results & documents <FileCheck2 size={16}/></div><div className="art-input">Partners & team <Workflow size={16}/></div><div className="art-lims-status"><Check size={13}/> ARABIC / ENGLISH WORKSPACE</div></div></div>
         <div className="art-floating art-floating-right"><Braces size={17}/> CUSTOM BUILT</div>
@@ -24,6 +28,6 @@ export function CaseArt({variant,large=false}:{variant:'reports'|'lims'|'archive
       </>}
     </div>
     <div className="art-side-label"><Activity size={14}/> SYSTEMFIT / WORKFLOW LAB</div>
-    <div className="art-index">0{variant==='reports'?'1':variant==='lims'?'2':variant==='system'?'4':'3'} / CUSTOM BUILD</div>
+    <div className="art-index">0{variant==='reports'?'1':variant==='lims'?'2':variant==='system'?'4':variant==='receipts'?'5':'3'} / CUSTOM BUILD</div>
   </div>;
 }

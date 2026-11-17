@@ -8,7 +8,7 @@ export type CaseStudy = {
   tagline: string;
   description: string;
   stack: string[];
-  art: 'reports' | 'lims' | 'archive' | 'system';
+  art: 'reports' | 'lims' | 'archive' | 'system' | 'receipts';
   demoUrl?: string;
   highlightLabel: string;
   highlight: string;
@@ -126,6 +126,32 @@ export const caseStudies: CaseStudy[] = [
       {figure:'Daily',label:'Date-based results selection',note:'Only matching released results'},
       {figure:'Batch',label:'Document generation',note:'Word and PDF outputs'},
       {figure:'Auto',label:'Folder organization',note:'Month- and day-based archives'},
+    ],
+  },
+  {
+    id:'receiptflow', number:'05', slug:'receiptflow-ai', category:'AI RECEIPT MANAGEMENT', art:'receipts',
+    title:'ReceiptFlow AI', shortTitle:'ReceiptFlow AI',
+    tagline:'From receipt photos to reviewed, organized expense records.',
+    description:'A working web application built by Hesham Ezz for bulk receipt uploads, AI-assisted data extraction, editable human review, expense filtering and Excel export.',
+    stack:['Next.js','Gemini API','Supabase','Vercel'],
+    demoUrl:'https://receiptflow-ai-nine.vercel.app/',
+    highlightLabel:'WORKING MVP', highlight:'Upload → Review → Export',
+    challenge:'Reading receipt photos, sorting expenses into months, entering merchant names and totals, and preparing spreadsheet reports involved repetitive manual work.',
+    workflow:'Receipt images remain the source documents, and a person reviews extracted information before saving. Monthly and yearly organization and spreadsheet exports support the existing expense workflow.',
+    solution:'An English-language application with bulk uploads, Gemini-assisted merchant, date and amount extraction, editable review, monthly and yearly filters, private image storage and Excel export.',
+    distinctive:'AI prepares the receipt data. A person reviews and approves it before saving, keeping the workflow practical and accountable.',
+    before:['Read receipt photos individually','Type merchant names, dates and totals','Sort expenses into months and years','Build spreadsheet reports manually'],
+    after:['Upload receipt images in batches','Extract key fields with AI assistance','Review and edit the extracted data before saving','Filter saved expenses and export to Excel'],
+    steps:[
+      {title:'Upload receipts',description:'Add multiple receipt images to begin processing.'},
+      {title:'Extract with AI',description:'Use Gemini Vision to prepare merchant, date and amount fields.'},
+      {title:'Review and approve',description:'Check and edit the extracted values before saving the records.'},
+      {title:'Organize and export',description:'Use monthly and yearly filters and export expense data to Excel.'},
+    ],
+    outcomes:[
+      {figure:'MVP',label:'Working end-to-end application',note:'Next.js, Gemini API, Supabase and Vercel'},
+      {figure:'Human review',label:'Approval before saving',note:'Extracted fields remain editable'},
+      {figure:'Excel',label:'Expense data export',note:'Further automation and client-specific formatting remain in development'},
     ],
   },
 ];

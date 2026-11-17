@@ -7,7 +7,7 @@ import {CaseArt} from '@/components/case-art';
 
 export function CaseStudyShowcase(){
   const [filter,setFilter]=useState<'all'|'reporting'|'rpa'|'systems'>('all');
-  const filtered=caseStudies.filter(p=>filter==='all'||(filter==='systems'?p.id==='cml':filter==='rpa'?p.id==='lims':['ighv','ras'].includes(p.id)));
+  const filtered=caseStudies.filter(p=>filter==='all'||(filter==='systems'?['cml','receiptflow'].includes(p.id):filter==='rpa'?p.id==='lims':['ighv','ras'].includes(p.id)));
   return <>
     <div className="case-filter" role="group" aria-label="Filter case studies">
       <span className="case-filter-label"><Layers3 size={15}/> EXPLORE BY FOCUS</span>
