@@ -8,7 +8,8 @@ export type CaseStudy = {
   tagline: string;
   description: string;
   stack: string[];
-  art: 'reports' | 'lims' | 'archive';
+  art: 'reports' | 'lims' | 'archive' | 'system';
+  demoUrl?: string;
   highlightLabel: string;
   highlight: string;
   challenge: string;
@@ -26,6 +27,32 @@ export const slidesPreviewUrl = 'https://drive.google.com/file/d/1pGcLttgiTLH27h
 export const driveVideoUrl = 'https://drive.google.com/file/d/1_BulY8xdtgE3DEK4NJT1_Cu8oNg6Sg0D/view?usp=drive_link';
 
 export const caseStudies: CaseStudy[] = [
+  {
+    id:'cml', number:'04', slug:'cml-laboratory-system', category:'CUSTOM LABORATORY SOFTWARE', art:'system',
+    title:'CML Laboratory System', shortTitle:'CML Laboratory System',
+    tagline:'From hands-on laboratory experience to a working system built for CML.',
+    description:'Built by Hesham Ezz for Colors Medical Laboratory (CML), this bilingual operations workspace brings sample registration, case tracking, results, partner workflows and team tasks into one custom application.',
+    stack:['React','TypeScript','Workflow Design','Cloudflare D1 & R2'],
+    demoUrl:'https://heshamezz18.github.io/cml-laboratory-system/',
+    highlightLabel:'EXPLORE THE BUILD', highlight:'Interactive system demo',
+    challenge:'Daily laboratory administration involves registering samples, following up on missing documents, tracking cases and sharing results. Those connected tasks needed a workspace designed around how CML actually operates.',
+    workflow:'Hesham brought firsthand experience of CML’s sample registration, molecular test requests, document follow-up and result handling into the design. The laboratory’s terminology, test workflows and team responsibilities shaped the system.',
+    solution:'A working Arabic and English application with sample registration, searchable case records, status filters, barcode labels, result documents, partner workflows, messages and team tasks. The full application also implements role-based access and audit records.',
+    distinctive:'I built the CML system from the workflows I understood through daily laboratory administration: start with the real work, then design the software around it.',
+    before:['Register samples and maintain operational logs','Follow up on supporting documents and case progress','Coordinate result sharing and partner requests','Track team follow-up across separate tasks'],
+    after:['Register and find samples in one workspace','View case details and filter by test, company and status','Bring results and partner workflows together','Organize messages and team tasks alongside the work'],
+    steps:[
+      {title:'Start inside the lab',description:'Translate firsthand CML administration experience into requirements for registration, follow-up, documents and result handling.'},
+      {title:'Map the workspace',description:'Connect samples, cases, companies, statuses and team responsibilities, with Arabic, English and right-to-left layouts.'},
+      {title:'Build the application',description:'Implement the interface in React and TypeScript, with D1 records, R2 documents, role-based access and audit records in the full application.'},
+      {title:'Make the work tangible',description:'Create a standalone public demo with fictional records so visitors can explore the interface and workflows themselves.'},
+    ],
+    outcomes:[
+      {figure:'AR / EN',label:'Bilingual workspace',note:'Arabic with RTL layout and English'},
+      {figure:'Connected',label:'Laboratory operations',note:'Samples, cases, results and team workflows'},
+      {figure:'Try it',label:'Public interactive demo',note:'Fictional records; edits reset on reload'},
+    ],
+  },
   {
     id:'ighv', number:'01', slug:'ighv-report-automation', category:'REPORTING AUTOMATION', art:'reports',
     title:'IGHV Report Automation', shortTitle:'IGHV Reporting',

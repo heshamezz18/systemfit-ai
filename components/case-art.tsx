@@ -1,10 +1,14 @@
 import { Activity, ArrowDown, Braces, Check, Database, FileCheck2, FileSpreadsheet, FileText, FlaskConical, Folder, MousePointer2, Workflow } from 'lucide-react';
 
-export function CaseArt({variant,large=false}:{variant:'reports'|'lims'|'archive';large?:boolean}){
+export function CaseArt({variant,large=false}:{variant:'reports'|'lims'|'archive'|'system';large?:boolean}){
   return <div aria-hidden="true" className={`case-art case-art--${variant} ${large?'case-art--large':''}`}>
     <div className="art-grid" />
     <div className="art-orbit art-orbit-one"/><div className="art-orbit art-orbit-two"/>
     <div className="case-art-content">
+      {variant==='system' && <>
+        <div className="art-lims"><div className="art-lims-header"><FlaskConical size={16}/> CML LABORATORY SYSTEM <span className="live-led"/></div><div className="art-lims-body"><div className="art-input">Samples & cases <Database size={16}/></div><div className="art-input">Results & documents <FileCheck2 size={16}/></div><div className="art-input">Partners & team <Workflow size={16}/></div><div className="art-lims-status"><Check size={13}/> ARABIC / ENGLISH WORKSPACE</div></div></div>
+        <div className="art-floating art-floating-right"><Braces size={17}/> CUSTOM BUILT</div>
+      </>}
       {variant==='reports' && <>
         <div className="art-floating art-floating-left"><FileSpreadsheet size={17}/> EXCEL SOURCE</div>
         <div className="art-document"><div className="art-document-header"><FlaskConical size={18}/> MOLECULAR REPORT <span className="art-check"><Check size={12}/></span></div><div className="art-document-line long"/><div className="art-document-line"/><div className="art-document-line medium"/><div className="art-document-chart"><span/><span/><span/><span/><span/><span/><span/></div><div className="art-document-footer">READY FOR EXPORT <FileCheck2 size={16}/></div></div>
@@ -20,6 +24,6 @@ export function CaseArt({variant,large=false}:{variant:'reports'|'lims'|'archive
       </>}
     </div>
     <div className="art-side-label"><Activity size={14}/> SYSTEMFIT / WORKFLOW LAB</div>
-    <div className="art-index">0{variant==='reports'?'1':variant==='lims'?'2':'3'} / CUSTOM BUILD</div>
+    <div className="art-index">0{variant==='reports'?'1':variant==='lims'?'2':variant==='system'?'4':'3'} / CUSTOM BUILD</div>
   </div>;
 }

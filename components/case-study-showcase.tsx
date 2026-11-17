@@ -6,13 +6,13 @@ import {caseStudies} from '@/lib/case-studies';
 import {CaseArt} from '@/components/case-art';
 
 export function CaseStudyShowcase(){
-  const [filter,setFilter]=useState<'all'|'reporting'|'rpa'>('all');
-  const filtered=caseStudies.filter(p=>filter==='all'||(filter==='rpa'?p.id==='lims':p.id!=='lims'));
+  const [filter,setFilter]=useState<'all'|'reporting'|'rpa'|'systems'>('all');
+  const filtered=caseStudies.filter(p=>filter==='all'||(filter==='systems'?p.id==='cml':filter==='rpa'?p.id==='lims':['ighv','ras'].includes(p.id)));
   return <>
     <div className="case-filter" role="group" aria-label="Filter case studies">
       <span className="case-filter-label"><Layers3 size={15}/> EXPLORE BY FOCUS</span>
-      {[['all','All projects'],['reporting','Report automation'],['rpa','LIMS & RPA']].map(([key,label])=><button type="button" key={key} onClick={()=>setFilter(key as typeof filter)} className={filter===key?'active':''} aria-pressed={filter===key}>{label}</button>)}
-      <span className="case-filter-count">{String(filtered.length).padStart(2,'0')} / 03</span>
+      {[['all','All projects'],['systems','Custom systems'],['reporting','Report automation'],['rpa','LIMS & RPA']].map(([key,label])=><button type="button" key={key} onClick={()=>setFilter(key as typeof filter)} className={filter===key?'active':''} aria-pressed={filter===key}>{label}</button>)}
+      <span className="case-filter-count">{String(filtered.length).padStart(2,'0')} / {String(caseStudies.length).padStart(2,'0')}</span>
     </div>
     <div className="case-grid" aria-live="polite">
       {filtered.map((p,i)=><article key={p.id} className={`case-card ${filter==='all'&&i===0?'case-card--featured':''}`}>
