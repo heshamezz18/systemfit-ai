@@ -267,3 +267,31 @@
 @media(max-width:900px){.sf-founder-grid,.sf-home-trust-inner{grid-template-columns:1fr}.sf-founder-visual{max-width:510px;width:100%;margin:0 auto}.sf-credentials-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sf-credentials-head{display:block}.sf-credentials-head>p{max-width:590px;margin-top:20px}}
 @media(max-width:640px){.sf-founder{padding:75px 0}.sf-founder-copy h2{letter-spacing:-1.4px}.sf-founder-visual{height:330px}.sf-founder-rings i{height:275px;width:275px}.sf-founder-rings i:nth-child(2){height:225px;width:225px}.sf-founder-rings i:nth-child(3){height:160px;width:160px}.sf-founder-core{height:165px;width:145px}.sf-founder-core strong{font-size:55px}.sf-founder-orbit-tag{font-size:9px;padding:9px}.sf-founder-orbit-top{top:9px}.sf-founder-orbit-bottom{bottom:38px}.sf-founder-caption{font-size:7px;letter-spacing:.4px}.sf-credentials{padding:70px 0}.sf-credentials-grid{grid-template-columns:1fr}.sf-credentials-head h2{letter-spacing:-1px}.sf-credential-art{height:225px}.sf-home-trust{padding:65px 0}}
 @media(prefers-reduced-motion:reduce){.sf-credential-card,.sf-credential-paper{transition:none}}
+
+/* ReceiptFlow AI — project demo additions */
+.case-card { position: relative; }
+.receiptflow-card-watch {
+  position: absolute; left: 24px; top: 22px; z-index: 3;
+  display: inline-flex; align-items: center; gap: 9px;
+  border: 1px solid rgba(117,229,240,.48);
+  border-radius: 999px; padding: 10px 14px;
+  color: #e5fbff; background: rgba(7,32,48,.90);
+  backdrop-filter: blur(12px); font-size: 12px; font-weight: 700;
+  text-decoration: none; box-shadow: 0 10px 30px rgba(0,0,0,.22);
+  transition: background .2s ease, transform .2s ease;
+}
+.receiptflow-card-watch:hover, .receiptflow-card-watch:focus-visible { background: #087a91; transform: translateY(-2px); }
+.receiptflow-card-watch span { opacity: .7; font-weight: 500; }
+.receiptflow-promo-section { padding: 86px 0; background: #f3f8fb; scroll-margin-top: 110px; }
+.receiptflow-promo-player { overflow: hidden; border-radius: 22px; background: #0c2030; box-shadow: 0 22px 65px rgba(11,34,50,.18); }
+.receiptflow-promo-frame { width: 100%; aspect-ratio: 16 / 9; background: #05131d; }
+.receiptflow-promo-frame iframe { display: block; border: 0; width: 100%; height: 100%; }
+.receiptflow-promo-actions { padding: 22px 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; color: #a8c8d2; font-size: 13px; }
+.receiptflow-promo-actions > div { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.receiptflow-promo-secondary { display: inline-flex; align-items: center; gap: 8px; color: #a9effa; font-size: 14px; font-weight: 700; text-decoration: none; }
+.receiptflow-promo-secondary:hover { color: #fff; }
+@media(max-width: 640px) {
+  .receiptflow-promo-section { padding: 54px 0; }
+  .receiptflow-promo-actions { padding: 18px; }
+  .receiptflow-card-watch { top: 14px; left: 14px; padding: 8px 11px; font-size: 11px; }
+}

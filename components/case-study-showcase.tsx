@@ -16,7 +16,7 @@ export function CaseStudyShowcase(){
     </div>
     <div className="case-grid" aria-live="polite">
       {filtered.map((p,i)=><article key={p.id} className={`case-card ${filter==='all'&&i===0?'case-card--featured':''}`}>
-        <Link className="case-card-media" href={`/work/${p.slug}`} tabIndex={-1} aria-hidden="true"><CaseArt variant={p.art} large={filter==='all'&&i===0}/><span className="case-card-media-arrow"><ArrowUpRight size={21}/></span></Link>
+        <Link className="case-card-media" href={`/work/${p.slug}`} tabIndex={-1} aria-hidden="true"><CaseArt variant={p.art} large={filter==='all'&&i===0}/><span className="case-card-media-arrow"><ArrowUpRight size={21}/></span></Link>{p.id==='receiptflow'&&<Link className="receiptflow-card-watch" href={`/work/${p.slug}#receiptflow-video`}><Play size={14} fill="currentColor"/> Watch project demo <span>01:31</span></Link>}
         <div className="case-card-body"><div className="case-meta"><span>{p.number} / {p.category}</span><span className="case-real"><span/> REAL PROJECT</span></div><h3><Link href={`/work/${p.slug}`}>{p.title}</Link></h3><p>{p.description}</p><div className="case-chips">{p.stack.slice(0,3).map(t=><span key={t}>{t}</span>)}</div><div className="case-card-bottom"><div className="case-highlight"><span>{p.highlightLabel}</span><b>{p.highlight}</b></div><Link className="case-card-link" href={`/work/${p.slug}`}>Explore Case Study <ArrowRight size={17}/></Link></div></div>
       </article>)}
     </div>
